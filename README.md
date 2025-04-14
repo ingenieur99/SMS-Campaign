@@ -103,7 +103,7 @@ Placeholder for app-wide navigation (future scope).
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/SMS-campaign.git
+git clone https://github.com/ingenieur99/SMS-campaign.git
 cd SMS-Campaign
 
 ```
