@@ -1,103 +1,117 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState } from 'react';
+import { Sidebar } from '@/components/SideBar';
+import { CampaignButton } from '@/components/CampaignButton';
+import { IphonePreview } from '@/components/iphonePreview';
+import { CampaignContent } from '@/components/campaignContent';
+import { Filter } from '@/components/filter';
+import { Header } from '@/components/Header';
+
+export default function CampaignPage() {
+  const [campaignContent, setCampaignContent] = useState(
+    `L'amour est dans l'air ❤️ ! Offrez-lui une surprise inoubliable aujourd'hui.\nDécouvrez nos offres spéciales ici : http://b2bph.tn/xxxx`
+  );
+  const [sentMessage, setSentMessage] = useState('');
+
+  const handleSend = () => {
+    setSentMessage(campaignContent);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex h-screen w-full bg-gray-50 rounded-xl">
+      <Sidebar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <Filter />
+
+      <div className="bg-gray-100 flex-1 flex flex-col max-w-screen-xl mx-auto p-2">
+        <Header />
+
+        <div className="w-full bg-white p-6 rounded-xl shadow space-y-4">
+          <div className="flex justify-between items-center pb-4">
+            <h1 className="text-2xl font-semibold">Create Campaign</h1>
+          </div>
+          <hr className="border-b border-gray-200" />
+
+          <div className="flex flex-col lg:flex-row gap-6">
+            <div className="flex-1 p-4 rounded-xl space-y-4 max-w-3xl">
+              <div className="flex justify-between items-center pb-4">
+                <h2 className="text-xl font-semibold flex items-center gap-3">
+                  Seasonal Shoppers
+                  <img src="/ic-outline-edit-2.png" alt="Edit Icon" />
+                  <div className="flex items-center gap-1 bg-gray-100 text-sm px-2 py-1 rounded-full">
+                    <img src="/Left.png" alt="Count Icon" />
+                    <span className="font-medium text-gray-700">273</span>
+                  </div>
+                </h2>
+              </div>
+              <hr className="border-b border-gray-200" />
+
+              <div className="mb-10">
+                <h2 className="text-lg font-semibold pb-1 mb-1">Recipients</h2>
+                <h3 className="text-sm text-gray-400 text-center pb-1 mb-1">Don't send to</h3>
+                <div className="flex space-x-10">
+                  <button className="px-9 py-1 rounded-full border border-gray-300 text-gray-300 text-sm hover:bg-gray-100 transition">
+                    Select one or more options
+                  </button>
+                  <button className="px-9 py-1 rounded-full border border-gray-300 text-gray-300 text-sm hover:bg-gray-100 transition">
+                    Select one or more options
+                  </button>
+                </div>
+              </div>
+
+              <CampaignContent
+                value={campaignContent}
+                onChange={(val) => setCampaignContent(val)}
+              />
+
+              <div className="space-y-6 mt-6">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-lg font-semibold">Tracking</h2>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <h2 className="text-lg font-semibold">Shorten all links with bzbp.tn</h2>
+                  <input type="checkbox" className="toggle-checkbox-slider" />
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center">
+                    <h2 className="text-lg font-semibold">Include tracking parameters</h2>
+                    <input type="checkbox" className="toggle-checkbox-slider" />
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    Links in this campaign will include additional tracking information called UTM parameters. This allows source tracking within third-party reporting tools such as Google Analytics.
+                  </p>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center">
+                    <h2 className="text-lg font-semibold">Customize tracking parameters</h2>
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    When enabled, this campaign will use the custom tracking parameters defined below and will completely <span className="underline">replace</span> the default parameters in your <span className="underline">Account setting</span>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between w-full pt-2">
+                <div>
+                  <CampaignButton text="Send a test message" variant="ghost" />
+                </div>
+                <div className="flex space-x-4">
+                  <CampaignButton text="Schedule" variant="outline" icon="/Right.png" />
+                  <CampaignButton text="Send" icon="/send-2.png" onClick={handleSend} />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-center items-start pt-4">
+              <IphonePreview content={sentMessage} />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
