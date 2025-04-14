@@ -106,7 +106,10 @@ Placeholder for app-wide navigation (future scope).
 git clone https://github.com/your-username/SMS-campaign.git
 cd SMS-Campaign
 
----
+```
+### 2. 🌐 Live Demo
+🔗 Deployed App: https://www.sms-campaign.com/
+
 
 
 
