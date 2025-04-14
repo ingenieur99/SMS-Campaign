@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📣 SMS-Campaign Creation 
 
-## Getting Started
+A responsive SMS-Campaign creation dashboard built with **React Components**, **Next.js (App Router)**, and **Tailwind CSS**. This application allows users to create, preview, and manage SMS campaigns with a clean and interactive UI.
 
-First, run the development server:
+---
 
+## 🚀 Features
+
+- ✍️ Rich Text Campaign Editor
+- 📱 Real-Time iPhone Message Preview
+- 🧩 Modular React Components
+- 🎨 Tailwind CSS for Custom UI Styling
+- 🧠 Filter Panel for Target Segmentation
+- 📊 Credit & Revenue Overview
+- 🔔 Notification & User Toolbar
+- 🔒 Fully Client-Side Rendered (`use client`)
+
+---
+
+## 🧪 Technologies Used
+
+| Tech           | Description                                     |
+|----------------|-------------------------------------------------|
+| **Next.js**    | React framework for routing and structure       |
+| **React**      | Functional components and hooks (`useState`)    |
+| **Tailwind CSS** | Utility-first CSS framework for styling        |
+| **TypeScript** | Strong typing for components and props          |
+| **SVG + PNG Icons** | Used for UI indicators & branding         |
+
+
+
+## 🗂 Project Structure
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+SMS-Campaign/
+
+├── public/                  # Static assets (images, icons, etc.)
+│   ├── ic-recherche.png
+│   ├── send-2.png
+│   └── ...
+│
+├── src/
+│   ├── app/                 # Main app directory (Next.js App Router)
+│   │   ├── page.tsx         # Main campaign page
+│   │   └── globals.css      # Global styles (Tailwind + custom)
+│   │   └── Layout.tsx      
+│   │
+│   ├── components/          # Reusable React components
+│   │   ├── CampaignButton.tsx
+│   │   ├── CampaignContent.tsx
+│   │   ├── Filters.tsx
+│   │   ├── Header.tsx
+│   │   ├── IphonePreview.tsx
+│   │   └── Sidebar.tsx
+│
+├── .gitignore               # Git ignore rules
+├── README.md                # Project documentation
+├── tailwind.config.ts       # Tailwind configuration
+├── tsconfig.json            # TypeScript config
+├── next.config.js           # Next.js config
+└── package.json             # Project dependencies
+
 ```
+## 📦 Components Explained
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### `CampaignButton.tsx`
+Customizable button supporting:
+- Variants: `primary`, `outline`, `ghost`
+- Optional icons (placed to the right)
+- Click handler
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### `CampaignContent.tsx`
+Multiline input for typing campaign messages:
+- Expands with text
+- Placeholder guidance
+- Real-time controlled input
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### `IphonePreview.tsx`
+A responsive mockup of an iPhone with:
+- Live message preview
+- Time/date & battery indicators
+- Link detection & styling
 
-## Learn More
+### `Filter.tsx`
+Sidebar panel for filtering recipients:
+- Patient dropdown (search, DOB, gender)
+- Appointment type & status selectors
+- Toggleable accordion for clarity
 
-To learn more about Next.js, take a look at the following resources:
+### `Header.tsx`
+Top navigation containing:
+- SMS credits with icon
+- Revenue card with green growth arrow
+- Notification bell with badge
+- Avatar with user greeting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `SideBar.tsx`
+Placeholder for app-wide navigation (future scope).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠 Getting Started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/SMS-campaign.git
+cd SMS-Campaign
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+
+
